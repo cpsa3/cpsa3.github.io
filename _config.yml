@@ -7,7 +7,7 @@ title: Cpsa3's Blog
 subtitle: A blogging framework for hackers.
 author: cpsa3
 simple_search: https://www.google.com/search
-description:just do it!
+description: just do it!
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in
@@ -64,13 +64,13 @@ default_asides: [asides/douban.html, asides/recent_posts.html, asides/github.htm
 # ----------------------- #
 
 # Github repositories
-github_user:cpsa3
+github_user: cpsa3
 github_repo_count: 0
 github_show_profile_link: true
 github_skip_forks: true
 
 # Twitter
-twitter_user:cpsa3
+twitter_user: cpsa3
 twitter_tweet_button: true
 
 # Google +1
@@ -91,7 +91,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:cpsa3
+disqus_short_name: cpsa3
 disqus_show_comment_count: true
 
 # Google Analytics
@@ -101,7 +101,7 @@ google_analytics_tracking_id:
 facebook_like: false
 
 # Weibo Link
-weibo_user:cpsa3
+weibo_user: cpsa3
 
 #Dribble
 dribbble_user: cpsa3
