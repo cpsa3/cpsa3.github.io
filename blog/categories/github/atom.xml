@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: github | 伏笔]]></title>
+  <link href="http://cpsa3.github.io/blog/categories/github/atom.xml" rel="self"/>
+  <link href="http://cpsa3.github.io/"/>
+  <updated>2014-11-16T23:08:37+08:00</updated>
+  <id>http://cpsa3.github.io/</id>
+  <author>
+    <name><![CDATA[cpsa3]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Giihub Page 域名绑定]]></title>
+    <link href="http://cpsa3.github.io/blog/2014/11/16/giihub-page-yu-ming-bang-ding/"/>
+    <updated>2014-11-16T22:34:39+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2014/11/16/giihub-page-yu-ming-bang-ding</id>
+    <content type="html"><![CDATA[<ul>
+<li>在Octopress/source目录下建个无后缀的CNAME文本文件，里面写上域名，如ryvius.me</li>
+<li><p>去域名管理网站修改:</p>
+
+<p>CNAME: www.ryvius.me => cpsa3.github.com</p>
+
+<p>A: ryvius.me => 207.97.227.245</p></li>
+<li>等待域名解析生效</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
