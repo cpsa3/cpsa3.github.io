@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: life | Ryvius]]></title>
+  <title><![CDATA[Category: life | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/life/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2014-11-15T23:55:10+08:00</updated>
+  <updated>2014-11-16T14:00:21+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -27,7 +27,21 @@
     <link href="http://cpsa3.github.io/blog/2014/11/14/hello-world/"/>
     <updated>2014-11-14T01:05:33+08:00</updated>
     <id>http://cpsa3.github.io/blog/2014/11/14/hello-world</id>
-    <content type="html"><![CDATA[<p>this is the description!</p>
+    <content type="html"><![CDATA[<h4>JavaScript</h4>
+
+<pre><code class="javascript">    Console.log('Hello World');
+</code></pre>
+
+<h4>Python</h4>
+
+<pre><code class="python">@requires_authorization
+class SomeClass:
+    pass
+
+if __name__ == '__main__':
+    # A comment
+    print 'hello world'
+</code></pre>
 ]]></content>
   </entry>
   
