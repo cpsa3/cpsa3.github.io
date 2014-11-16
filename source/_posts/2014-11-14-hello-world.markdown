@@ -6,5 +6,19 @@ comments: true
 categories:
 - Life 
 ---
-this is the description!
+#### JavaScript
 
+```javascript
+    Console.log('Hello World');
+```
+
+#### Python
+```python
+@requires_authorization
+class SomeClass:
+    pass
+
+if __name__ == '__main__':
+    # A comment
+    print 'hello world'
+```
