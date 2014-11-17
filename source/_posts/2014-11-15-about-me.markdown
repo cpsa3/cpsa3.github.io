@@ -6,4 +6,4 @@ comments: true
 categories: 
 - Life 
 ---
-2B码农向往文艺的生活 =。=
+90后，程序员，宅男，2B但向往文艺的生活
