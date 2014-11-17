@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2014-11-16T23:08:37+08:00</updated>
+  <updated>2014-11-18T01:48:05+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[生活不止眼前的苟且]]></title>
+    <link href="http://cpsa3.github.io/blog/2014/11/18/sheng-huo-bu-zhi-yan-qian-de-gou-qie/"/>
+    <updated>2014-11-18T01:25:12+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2014/11/18/sheng-huo-bu-zhi-yan-qian-de-gou-qie</id>
+    <content type="html"><![CDATA[<blockquote><p>生活不止眼前的苟且</p>
+
+<p>还有诗和远方的田野</p>
+
+<p>你赤手空拳来到</p>
+
+<p>人世间</p>
+
+<p>为找到那片海</p>
+
+<p>不顾一切</p></blockquote>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Giihub Page 域名绑定]]></title>
@@ -36,7 +55,7 @@
     <link href="http://cpsa3.github.io/blog/2014/11/15/about-me/"/>
     <updated>2014-11-15T23:36:56+08:00</updated>
     <id>http://cpsa3.github.io/blog/2014/11/15/about-me</id>
-    <content type="html"><![CDATA[<p>2B码农向往文艺的生活 =。=</p>
+    <content type="html"><![CDATA[<p>90后，程序员，宅男，2B但向往文艺的生活</p>
 ]]></content>
   </entry>
   
