@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2014-11-18T21:38:52+08:00</updated>
+  <updated>2014-11-18T22:55:36+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -55,7 +55,9 @@
     <link href="http://cpsa3.github.io/blog/2014/11/15/about-me/"/>
     <updated>2014-11-15T23:36:56+08:00</updated>
     <id>http://cpsa3.github.io/blog/2014/11/15/about-me</id>
-    <content type="html"><![CDATA[<p>90后，程序员，宅男，2B但向往文艺的生活</p>
+    <content type="html"><![CDATA[<p>90后，程序员，宅男
+偏爱动漫，但对游戏无感
+时而2B，时而文艺</p>
 ]]></content>
   </entry>
   
