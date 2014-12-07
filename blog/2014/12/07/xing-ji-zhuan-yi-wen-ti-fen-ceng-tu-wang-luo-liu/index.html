@@ -1,0 +1,216 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>星际转移问题(分层图网络流) - 伏笔</title>
+	<meta name="author" content="cpsa3">
+
+	
+	<meta name="description" content="星际转移问题(分层图网络流) 星际转移问题 问题描述： 由于人类对自然资源的消耗，人们意识到大约在2300年之后，地球就不能再居住了。于是在月球上建立了新的绿地，以便在需要时移民。令人意想不到的是，2177年冬由于未知的原因，地球环境发生了连锁崩溃，人类必须在最短的时间内迁往月球。 &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="伏笔" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://cpsa3.github.io/blog/2014/12/07/xing-ji-zhuan-yi-wen-ti-fen-ceng-tu-wang-luo-liu/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='/images/avatar.jpg' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">伏笔</a></h1>
+<p class="subtitle">如能忘掉渴望 岁月长 衣裳薄</p>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Home</a></li>
+	<li><a href="/blog/archives">Blogs</a></li>
+	<li><a href="/blog/2014/11/15/about-me/">About Me</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/cpsa3" title="Weibo">Weibo</a>
+		
+		
+		<a class="douban" href="http://www.douban.com/people/55586275" title="Douban">Douban</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/cpsa3" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">星际转移问题(分层图网络流)</h1>
+	<div class="entry-content" itemprop="articleBody"><h3>星际转移问题</h3>
+
+<h4>问题描述：</h4>
+
+<p>由于人类对自然资源的消耗，人们意识到大约在2300年之后，地球就不能再居住了。于是在月球上建立了新的绿地，以便在需要时移民。令人意想不到的是，2177年冬由于未知的原因，地球环境发生了连锁崩溃，人类必须在最短的时间内迁往月球。现有n个太空站位于地球与月球之间，且有m艘公共交通太空船在其间来回穿梭。每个太空站可容纳无限多的人，而每艘太空船i 只可容纳H[i]个人。每艘太空船将周期性地停靠一系列的太空站，例如：(1，3，4)表示该太空船将周期性地停靠太空站134134134…。每一艘太空船从一个太空站驶往任一太空站耗时均为1。人们只能在太空船停靠太空站(或月球、地球)时上、下船。初始时所有人全在地球上，太空船全在初始站。试设计一个算法，找出让所有人尽快地全部转移到月球上的运输方案。</p>
+
+<h4>编程任务：</h4>
+
+<p>对于给定的太空船的信息，找到让所有人尽快地全部转移到月球上的运输方案。</p>
+
+<h4>数据输入：</h4>
+
+<p>由文件input.txt提供输入数据。文件第1行有3个正整数n（太空站个数），m（太空船个数）和k（需要运送的地球上的人的个数）。其中1&lt;=m&lt;=13,1&lt;=n&lt;=20,1&lt;=k&lt;=50。接下来的m行给出太空船的信息。第i+1行说明太空船pi。第1个数表示pi可容纳的人数Hpi；第2个数表示pi一个周期停靠的太空站个数r，1&lt;=r&lt;=n+2；随后r个数是停靠的太空站的编号(Si1,Si2,…,Sir)，地球用0表示，月球用-1表示。时刻0时，所有太空船都在初始站，然后开始运行。在时刻1，2，3…等正点时刻各艘太空船停靠相应的太空站。人只有在0,1,2…等正点时刻才能上下太空船。</p>
+
+<h4>结果输出：</h4>
+
+<p>程序运行结束时，将全部人员安全转移所需的时间输出到文件output.txt中。如果问题无解，则输出0。</p>
+
+<h4>输入文件示例：</h4>
+
+<p>2 2 1
+1 3 0 1 2
+1 3 1 2 –1</p>
+
+<h4>输出文件示例：</h4>
+
+<p>5</p>
+
+<hr />
+
+<h3>解决方案：</h3>
+
+<h4>1.问题分析：</h4>
+
+<p>分层图网络流问题，枚举答案，构造网络流判定。</p>
+
+<h4>2.建模方法：</h4>
+
+<p>首先判断从地球到月球是否存在一条路线，如果不存在那么无解，否则把每个太空站按照每天拆分成d个点，&lt;i,d>表示第i个站第d天。建立附加源S汇T，顺序枚举答案Day。</p>
+
+<p>整体思路：枚举天数，每次添加一些新的点和边继续增广。然后判断。
+N：太空站数量；
+M：太空船数量；
+K：需要传送的地球上人数</p>
+
+<p>建图：
+（1）、起始时S到(0,0)连接一天容量为K的有向边。如果当前枚举到第Day天。
+（2）、从(-1,Day)到T连接一条容量为INF的有向边。
+（3）、对于第i个太空船，设第Day-1天在a处，第Day天在b处，从(a,Day-1)到(b,Day)连接一条容量为该太空船容量H[i]的有向边。
+（4）、对于第i个太空站，从(i,Day-1)到(i,Day)连接一条容量为INF的有向边。
+（5）、求当前网络最大流，统计当前day之前的所以最大流量之和如果等于地球上人数K，停止枚举，当前Day值就是答案。</p>
+
+<p>注：0：地球; 1：月球</p>
+
+<h4>3.建模分析：</h4>
+
+<p>建图注释：
+（1）、表示K个人起始的时候 ( 即第0天 ) 都在地球上。这样限制了转移人数上限。
+（2）、表示第day天的时候可以有人登入月球。
+（3）、表示每个太空船对人的转移过程。
+（4）、表示第i个太空船上的人可以选择留到下一天在转移出去。
+（5）、表示前day天所能传送的最大人数如果等于K则说明已经完成任务。停止枚举。</p>
+
+<p>Ps、我们把网络优化问题转化为枚举答案+可行性判定问题。</p>
+
+<p>（1）、枚举天数，按天数把图分层，因为乘船每坐一站天数都要增加一，把太空船航线抽象成图中的一条边，跨图的两层。
+（2）、由于太空船容量有限，边上也要加上容量限制。
+（3）、除了坐船以外，人还可以在某个空间站等待下一班太空船的到来，所以每个点要与下一层同一点连接一条容量为无穷的边。
+（4）、这样在层限制的图上求出的网络最大流并于之前的最大流量之和累加就是在当前天数以内能够从地面到月球的最多的人数，该人数随天数递增不递减，存在单调性。所以可以枚举答案或二分答案，用网络流判定。
+（5）、网络流判定问题更适合枚举答案，而不是二分，因为新增一些点和边只需要在原有的基础上增广，不必重新求网络流。</p>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+
+    cpsa3
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'cpsa3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cpsa3.github.io/blog/2014/12/07/xing-ji-zhuan-yi-wen-ti-fen-ceng-tu-wang-luo-liu/';
+        var disqus_url = 'http://cpsa3.github.io/blog/2014/12/07/xing-ji-zhuan-yi-wen-ti-fen-ceng-tu-wang-luo-liu/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
