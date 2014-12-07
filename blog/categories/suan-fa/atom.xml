@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 算法 | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/suan-fa/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2014-12-07T18:09:49+08:00</updated>
+  <updated>2014-12-07T18:35:06+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -72,6 +72,7 @@ int Division(int a,int b){ //除法(正负都可以)
     }
     return IsPositive ? ans : GetReverse(ans);
 } 
+
 int main(){
 
     int a,b;
@@ -94,6 +95,8 @@ int main(){
 除法：-3                                                                    
 */
 </code></pre>
+
+<p>参考：<a href="http://blog.csdn.net/walkinginthewind/article/details/6886489">http://blog.csdn.net/walkinginthewind/article/details/6886489</a></p>
 ]]></content>
   </entry>
   
