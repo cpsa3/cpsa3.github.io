@@ -1,0 +1,211 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>分配问题 (二分图最佳匹配) - 伏笔</title>
+	<meta name="author" content="cpsa3">
+
+	
+	<meta name="description" content="分配问题 (二分图最佳匹配) 分配问题 问题描述： 有n件工作要分配给n个人做。第i个人做第j件工作产生的效益为cij。试设计一个将n件工作分配给n个人做的分配方案，使产生的总效益最大。 编程任务： 对于给定的n件工作和n个人，计算最优分配方案和最差分配方案。 数据输入： 由文件input. &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="伏笔" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://cpsa3.github.io/blog/2014/12/07/fen-pei-wen-ti-er-fen-tu-zui-jia-pi-pei/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='/images/avatar.jpg' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">伏笔</a></h1>
+<p class="subtitle">如能忘掉渴望 岁月长 衣裳薄</p>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Home</a></li>
+	<li><a href="/blog/archives">Blogs</a></li>
+	<li><a href="/blog/2014/11/15/about-me/">About Me</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/cpsa3" title="Weibo">Weibo</a>
+		
+		
+		<a class="douban" href="http://www.douban.com/people/55586275" title="Douban">Douban</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/cpsa3" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">分配问题 (二分图最佳匹配)</h1>
+	<div class="entry-content" itemprop="articleBody"><h3>分配问题</h3>
+
+<h4>问题描述：</h4>
+
+<p>有n件工作要分配给n个人做。第i个人做第j件工作产生的效益为cij。试设计一个将n件工作分配给n个人做的分配方案，使产生的总效益最大。</p>
+
+<h4>编程任务：</h4>
+
+<p>对于给定的n件工作和n个人，计算最优分配方案和最差分配方案。</p>
+
+<h4>数据输入：</h4>
+
+<p>由文件input.txt提供输入数据。文件的第1行有1个正整数n，表示有n件工作要分配给n个人做。接下来的n行中，每行有n个整数cij，1≤i≤n，1≤j≤n，表示第i个人做第j件工作产生的效益为cij。</p>
+
+<h4>结果输出：</h4>
+
+<p>程序运行结束时，将计算出的最小总效益和最大总效益输出到文件output.txt中。</p>
+
+<h4>输入文件示例：</h4>
+
+<p>5
+2 2 2 1 2
+2 3 1 2 4
+2 0 1 1 1
+2 3 4 3 3
+3 2 1 2 1</p>
+
+<h4>输出文件示例：</h4>
+
+<p>5
+14</p>
+
+<hr />
+
+<h3>解决方案：</h3>
+
+<h4>1.问题分析：</h4>
+
+<p>二分图最佳匹配问题，可以费用流解决 (或KM算法)。</p>
+
+<h4>2.建模方法：</h4>
+
+<p>把所有人看做二分图中顶点Xi，所有工作看做二分图中顶点Yi，建立附加源S汇T。</p>
+
+<blockquote><ul>
+<li>从S向每个Xi连一条容量为1，费用为0的有向边。</li>
+<li>从每个Yi向T连一条容量为1，费用为0的有向边。</li>
+<li>从每个Xi向每个Yj连接一条容量为INF (或1)，费用为Cij的有向边。</li>
+</ul>
+</blockquote>
+
+<p>求最小费用最大流，最小费用流值就是最少运费，求最大费用最大流，最大费用流值就是最多运费。</p>
+
+<h4>3.建模分析：</h4>
+
+<p>二分图最佳匹配建模方法为费用流模型。</p>
+
+<p>建图注释：</p>
+
+<blockquote><ul>
+<li>限制每个人能匹配的次数，因为每个人最多只能做一件。</li>
+<li>限制每件工作的匹配次数，因为每件工作只需要一个人来做。</li>
+<li>表示第Xi个人做第Yj间工作需要的花费。</li>
+</ul>
+</blockquote>
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2014
+
+    cpsa3
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'cpsa3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cpsa3.github.io/blog/2014/12/07/fen-pei-wen-ti-er-fen-tu-zui-jia-pi-pei/';
+        var disqus_url = 'http://cpsa3.github.io/blog/2014/12/07/fen-pei-wen-ti-er-fen-tu-zui-jia-pi-pei/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
