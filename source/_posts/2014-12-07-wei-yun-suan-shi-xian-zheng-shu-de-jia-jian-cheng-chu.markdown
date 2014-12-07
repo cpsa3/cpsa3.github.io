@@ -5,6 +5,7 @@ date: 2014-12-07 17:57:53 +0800
 comments: true
 categories: ['算法']
 ---
+
 ```cpp
 #include <iostream>
 #include <cstdio>
@@ -60,6 +61,7 @@ int Division(int a,int b){ //除法(正负都可以)
 	}
 	return IsPositive ? ans : GetReverse(ans);
 } 
+
 int main(){
 	
 	int a,b;
@@ -81,4 +83,7 @@ int main(){
 乘法：-12
 除法：-3                                                                    
 */
+
 ```
+
+参考：http://blog.csdn.net/walkinginthewind/article/details/6886489
