@@ -3,11 +3,11 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>伏笔</title>
+	<title>位运算实现整数的加减乘除 - 伏笔</title>
 	<meta name="author" content="cpsa3">
 
 	
-	<meta name="description" content="Dec 7,&nbsp 2014 算法 位运算实现整数的加减乘除 1
+	<meta name="description" content="位运算实现整数的加减乘除 1
 2
 3
 4
@@ -47,7 +47,14 @@
 38
 39
 40
-41 &hellip;">
+41
+42
+43
+44
+45
+46
+47
+48 &hellip;">
 	
 
   <!-- http://t.co/dKP3o1e -->
@@ -57,7 +64,7 @@
 
 	<link href="/atom.xml" rel="alternate" title="伏笔" type="application/atom+xml">
 	
-	<link rel="canonical" href="http://cpsa3.github.io/">
+	<link rel="canonical" href="http://cpsa3.github.io/blog/2014/12/07/wei-yun-suan-shi-xian-zheng-shu-de-jia-jian-cheng-chu/">
 	<link href="/favicon.png" rel="shortcut icon">
 	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
 	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
@@ -117,37 +124,9 @@
 				
 			
 			<div class="mid-col-container">
-				<div id="content" class="inner">
-<div itemscope itemtype="http://schema.org/Blog">
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-Dec  7,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/suan-fa/'>算法</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/12/07/wei-yun-suan-shi-xian-zheng-shu-de-jia-jian-cheng-chu/" itemprop="url">位运算实现整数的加减乘除</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">位运算实现整数的加减乘除</h1>
+	<div class="entry-content" itemprop="articleBody"><figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -299,301 +278,31 @@ Dec  7,&nbsp 2014</div>
 </span><span class='line'><span class="cm">*/</span>
 </span></code></pre></td></tr></table></div></figure>
 
-
-		
-		
-	</div>
+</div>
 
 </article>
 
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-Nov 26,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/xian-xing-gui-hua-yu-wang-luo-liu-24ti/'>线性规划与网络流24题</a>
-
-
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
 </div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/11/26/fu-zai-ping-heng-wen-ti-(gong-qiu-ping-heng-)/" itemprop="url">负载平衡问题（供求平衡）</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h3>负载平衡问题</h3>
-
-<h4>问题描述：</h4>
-
-<p>G公司有n个沿铁路运输线环形排列的仓库，每个仓库存储的货物数量不等。如何用最少搬运量可以使n个仓库的库存数量相同。搬运货物时，只能在相邻的仓库之间搬运。</p>
-
-<h4>编程任务：</h4>
-
-<p>对于给定的n个环形排列的仓库的库存量， 编程计算使n 个仓库的库存数量相同的最少搬运量。</p>
-
-<h4>数据输入：</h4>
-
-<p>由文件 input.txt 提供输入数据。文件的第 1 行中有 1 个正整数 n（n&lt;=100） ，表示有 n个仓库。第2行中有 n个正整数，表示n个仓库的库存量。</p>
-
-<h4>数据输入：</h4>
-
-<p>由文件 input.txt 提供输入数据。文件的第 1 行中有 1 个正整数 n（n&lt;=100） ，表示有 n个仓库。第2行中有 n个正整数，表示n个仓库的库存量。</p>
-
-<h4>结果输出:</h4>
-
-<p>程序运行结束时，将计算出的最少搬运量输出到文件output.txt中。</p>
-
-<h4>输入文件示例：</h4>
-
-<p>5
-17 9 14 16 4</p>
-
-<h4>输出文件示例：</h4>
-
-<p>11</p>
-
-<hr />
-
-<h3>解决方案：</h3>
-
-<h4>1.问题分析：</h4>
-
-<p>转化为供求平衡问题，用最小费用最大流解决。</p>
-
-<h4>2.建模方法：</h4>
-
-<p>首先求出所有仓库存货量平均值，设第i个仓库的盈余量为A[i]，A[i] = 第i个仓库原有存货量 - 平均存货量。建立二分图，把每个仓库抽象为两 个节点Xi和Yi。增设附加源S汇T。</p>
-
-<blockquote><ul>
-<li>如果A[i] > 0，从S向Xi连一条容量为A[i]，费用为0的有向边。</li>
-<li>如果A[i] &lt; 0，从Yi向T连一条容量为 - A[i]，费用为0的有向边。</li>
-<li>每个Xi向两个相邻顶点j，从Xi到Yj连接一条容量为无穷大，费用为1的有向边。</li>
-<li>每个Xi向两个相邻顶点j，从Xi到Xj连接一条容量为无穷大，费用为1的有向边。</li>
-</ul>
-</blockquote>
-
-<p>求最小费用最大流，最小费用流值就是最少搬运量。</p>
-
-<h4>3.建模分析：</h4>
-
-<blockquote><ul>
-<li>计算出每个仓库的盈余后，可以把问题转化为供求问题。</li>
-<li>建立供求网络，把二分图X集合中所有节点看做供应节点，Y集合所有节点看做需求节点。</li>
-<li>在能一次搬运满足供需的Xi和Yj之间连接一条费用为1的有向边，表示搬运一个单位货物费用为1。   &ndash; 建图中的第(3)步</li>
-<li>另外还要在Xi与相邻的Xj之间连接边，表示货物可以暂时搬运过去，不立即满足需求，费用也为1。 &ndash; 建图中的第(4)步</li>
-<li>最大流满足了所有的盈余和亏损供求平衡，最小费用就是最少搬运量。</li>
-</ul>
-</blockquote>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
 
 
 
-
-
-
-
-
-  
-
-
-Nov 18,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/gan-wu/'>感悟</a>
-
-
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/11/18/sheng-huo-bu-zhi-yan-qian-de-gou-qie/" itemprop="url">生活不止眼前的苟且</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<blockquote><p>生活不止眼前的苟且</p>
-
-<p>还有诗和远方的田野</p>
-
-<p>你赤手空拳来到</p>
-
-<p>人世间</p>
-
-<p>为找到那片海</p>
-
-<p>不顾一切</p></blockquote>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-Nov 16,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/github/'>github</a>
-
-
+</section>
 </div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/11/16/giihub-page-yu-ming-bang-ding/" itemprop="url">Giihub Page 域名绑定</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<ul>
-<li>在Octopress/source目录下建个无后缀的CNAME文本文件，里面写上域名，如ryvius.me</li>
-<li><p>去域名管理网站修改:</p>
-
-<p>CNAME: www.ryvius.me => cpsa3.github.com</p>
-
-<p>A: ryvius.me => 207.97.227.245</p></li>
-<li>等待域名解析生效</li>
-</ul>
-
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-Nov 15,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/life/'>life</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/11/15/about-me/" itemprop="url">About Me</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<p>90后，程序员，宅男
-偏爱动漫，但对游戏无感
-时而2B，时而文艺</p>
-
-		
-		
-	</div>
-
-</article>
-
-
-    <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-	<div class="meta">
-		<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-Nov 14,&nbsp 2014</div>
-		<div class="tags">
-
-
-	<a class='category' href='/blog/categories/life/'>life</a>
-
-
-</div>
-		
-	</div>
-	<h1 class="title" itemprop="name"><a href="/blog/2014/11/14/hello-world/" itemprop="url">Hello World</a></h1>
-	<div class="entry-content" itemprop="articleBody">
-		<h4>JavaScript</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">Console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Hello World&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>Python</h4>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="nd">@requires_authorization</span>
-</span><span class='line'><span class="k">class</span> <span class="nc">SomeClass</span><span class="p">:</span>
-</span><span class='line'>    <span class="k">pass</span>
-</span><span class='line'>
-</span><span class='line'><span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
-</span><span class='line'>    <span class="c"># A comment</span>
-</span><span class='line'>    <span class="k">print</span> <span class="s">&#39;hello world&#39;</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-		
-		
-	</div>
-
-</article>
-
-</div>
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/blog/archives">Blog Archives</a></div>
-</nav></div>
 			</div>
 			<footer id="footer" class="inner">Copyright &copy; 2014
 
@@ -614,7 +323,10 @@ Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Sha
       var disqus_shortname = 'cpsa3';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cpsa3.github.io/blog/2014/12/07/wei-yun-suan-shi-xian-zheng-shu-de-jia-jian-cheng-chu/';
+        var disqus_url = 'http://cpsa3.github.io/blog/2014/12/07/wei-yun-suan-shi-xian-zheng-shu-de-jia-jian-cheng-chu/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
