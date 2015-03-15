@@ -1,0 +1,318 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Jenkins配置&amp;集成StyleCop - 伏笔</title>
+	<meta name="author" content="cpsa3">
+
+	
+	<meta name="description" content="Jenkins配置&amp;集成StyleCop 概要 安装
+系统配置
+项目配置 源码管理
+构建触发器
+构建项目 邮件配置
+集成StyleCop 正文 安装 网上有教程，略过&hellip; 系统配置 配置MSBuild（后续项目构建中需要使用）： 项目配置 1.新建项目： 2.选择项目类型： &hellip;">
+	
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="/atom.xml" rel="alternate" title="伏笔" type="application/atom+xml">
+	
+	<link rel="canonical" href="http://cpsa3.github.io/blog/2015/03/15/jenkinspei-zhi-and-ji-cheng-stylecop/">
+	<link href="/favicon.png" rel="shortcut icon">
+	<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+	<!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<script src="http://lib.sinaapp.com/js/jquery/1.7.2/jquery.min.js"></script>
+	
+</head>
+
+
+<body>
+	<div class="container">
+		<div class="left-col">
+			<div class="intrude-less">
+			<header id="header" class="inner"><div class="profilepic">	
+	<script src="/javascripts/md5.js"></script>
+	<script type="text/javascript">
+		document.write("<img src='/images/avatar.jpg' alt='Profile Picture' style='width: 160px;' />");
+	</script>
+</div>
+<h1><a href="/">伏笔</a></h1>
+<p class="subtitle">如能忘掉渴望 岁月长 衣裳薄</p>
+<nav id="main-nav"><ul class="main">
+	<li><a href="/">Home</a></li>
+	<li><a href="/blog/archives">Blogs</a></li>
+	<li><a href="/blog/2014/11/15/about-me/">About Me</a></li>
+</ul>
+</nav>
+<nav id="sub-nav">
+	<div class="social">
+		
+		<a class="weibo" href="http://www.weibo.com/cpsa3" title="Weibo">Weibo</a>
+		
+		
+		<a class="douban" href="http://www.douban.com/people/55586275" title="Douban">Douban</a>
+		
+		
+		
+		
+		
+		<a class="github" href="https://github.com/cpsa3" title="GitHub">GitHub</a>
+		
+		
+		
+		
+		
+		
+		
+		<a class="rss" href="/atom.xml" title="RSS">RSS</a>
+		
+	</div>
+</nav>
+
+</header>				
+			</div>
+		</div>	
+		<div class="mid-col">
+			
+				
+			
+			<div class="mid-col-container">
+				<div id="content" class="inner"><article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+	<h1 class="title" itemprop="name">Jenkins配置&amp;集成StyleCop</h1>
+	<div class="entry-content" itemprop="articleBody"><h2>概要</h2>
+
+<ul>
+<li>安装</li>
+<li>系统配置</li>
+<li>项目配置
+
+<ul>
+<li>源码管理</li>
+<li>构建触发器</li>
+<li>构建项目</li>
+</ul>
+</li>
+<li>邮件配置</li>
+<li>集成StyleCop</li>
+</ul>
+
+
+<h2>正文</h2>
+
+<h3>安装</h3>
+
+<p>网上有教程，略过&hellip;</p>
+
+<h3>系统配置</h3>
+
+<p>配置MSBuild（后续项目构建中需要使用）：</p>
+
+<p><img src="http://img.blog.csdn.net/20150213145641618" alt="这里写图片描述" /></p>
+
+<h3>项目配置</h3>
+
+<p>1.新建项目：
+<img src="http://img.blog.csdn.net/20150213145724596" alt="这里写图片描述" /></p>
+
+<p>2.选择项目类型：
+<img src="http://img.blog.csdn.net/20150213145834019" alt="这里写图片描述" /></p>
+
+<p>3.进入项目配置页面
+<img src="http://img.blog.csdn.net/20150213145907575" alt="这里写图片描述" /></p>
+
+<p>4.源码管理
+<img src="http://img.blog.csdn.net/20150213145932301" alt="这里写图片描述" /></p>
+
+<p>5.项目构建
+<img src="http://img.blog.csdn.net/20150213145957729" alt="这里写图片描述" /></p>
+
+<p>6.首先使用MSBuild命名将项目编译后的文件放到临时目录，然后再用batch command将临时目录复制到iis指向的目录。
+<img src="http://img.blog.csdn.net/20150213150101392" alt="这里写图片描述" /></p>
+
+<p>7.配置触发器
+日程表表达式可以参考说明，0 * * * * （表示每个整点运行项目构建）
+<img src="http://img.blog.csdn.net/20150213150130814" alt="这里写图片描述" /></p>
+
+<p>8.构建项目
+<img src="http://img.blog.csdn.net/20150213150215820" alt="这里写图片描述" /></p>
+
+<p>构建信息：
+图中标示的为本次构建的svn revision
+<img src="http://img.blog.csdn.net/20150213150339527" alt="这里写图片描述" /></p>
+
+<p>本次构建的所有变更记录
+<img src="http://img.blog.csdn.net/20150213150359529" alt="这里写图片描述" /></p>
+
+<h3>邮件配置</h3>
+
+<p>1.进入系统配置页面配置邮件发送的SMTP
+<img src="http://img.blog.csdn.net/20150213150443615" alt="这里写图片描述" /></p>
+
+<p>2.进入项目配置页面，配置邮件通知：（每次不稳定构建时会邮件通知）
+<img src="http://img.blog.csdn.net/20150213150503489" alt="这里写图片描述" /></p>
+
+<h3>集成StyleCop</h3>
+
+<p>1.首先在build机器上安装StyleCop（4.7）</p>
+
+<p>2.为了避免所有开发机强依赖StyleCop，这里使用MSBuild.Extension.Pack （4.0.9.0）</p>
+
+<p>3.在项目根目录下，创建目录并复制所有的文件及dll（其中StyleCop.CSharp.dll,StyleCop.CSharp.Rules.dll,StyleCop.dll 是StyleCop安装目录下的3个dll；MSBuild.ExtensionPack.StyleCop.dll,MSBuild.ExtensionPack.tasks是MSBuild.Extension.Pack安装目录下；CodeQuailty.targets是MsBuild需要识别的target文件）
+<img src="http://img.blog.csdn.net/20150213150600239" alt="这里写图片描述" /></p>
+
+<p>4.CodeQuailty.targets</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'>  <span class="nt">&lt;Project</span> <span class="na">xmlns=</span><span class="s">&quot;http://schemas.microsoft.com/developer/msbuild/2003&quot;</span> <span class="na">DefaultTargets=</span><span class="s">&quot;Measure&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="c">&lt;!--&lt;Import Project=&quot;$(MSBuildStartupDirectory)\MSBuild.ExtensionPack.tasks&quot;/&gt;--&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;UsingTask</span> <span class="na">AssemblyFile=</span><span class="s">&quot;$(MSBuildStartupDirectory)\MsBuildCodeQuality\MSBuild.ExtensionPack.StyleCop.dll&quot;</span> <span class="na">TaskName=</span><span class="s">&quot;MSBuild.ExtensionPack.CodeQuality.StyleCop&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;PropertyGroup&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;OutDir&gt;</span>$(MSBuildStartupDirectory)<span class="nt">&lt;/OutDir&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/PropertyGroup&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;Target</span> <span class="na">Name=</span><span class="s">&quot;Measure&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;Message</span> <span class="na">Text=</span><span class="s">&quot;Measure called.&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;CreateItem</span> <span class="na">Include=</span><span class="s">&quot;$(MSBuildStartupDirectory)\Neo.Web\**\*.cs&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;Output</span> <span class="na">TaskParameter=</span><span class="s">&quot;Include&quot;</span> <span class="na">ItemName=</span><span class="s">&quot;StyleCopFiles&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/CreateItem&gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nt">&lt;MSBuild.ExtensionPack.CodeQuality.StyleCop</span>
+</span><span class='line'>          <span class="na">TaskAction=</span><span class="s">&quot;Scan&quot;</span>
+</span><span class='line'>          <span class="na">ShowOutput=</span><span class="s">&quot;true&quot;</span>
+</span><span class='line'>          <span class="na">ForceFullAnalysis=</span><span class="s">&quot;true&quot;</span>
+</span><span class='line'>          <span class="na">CacheResults=</span><span class="s">&quot;false&quot;</span>
+</span><span class='line'>          <span class="na">SourceFiles=</span><span class="s">&quot;@(StyleCopFiles)&quot;</span>
+</span><span class='line'>          <span class="na">logFile=</span><span class="s">&quot;$(OutDir)\MsBuildCodeQuality\StyleCopLog.txt&quot;</span>
+</span><span class='line'>          <span class="na">SettingsFile=</span><span class="s">&quot;$(MSBuildStartupDirectory)\Neo.Web\Settings.StyleCop&quot;</span>
+</span><span class='line'>          <span class="na">ContinueOnError=</span><span class="s">&quot;false&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;Output</span> <span class="na">TaskParameter=</span><span class="s">&quot;Succeeded&quot;</span> <span class="na">PropertyName=</span><span class="s">&quot;AllPassed&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;Output</span> <span class="na">TaskParameter=</span><span class="s">&quot;ViolationCount&quot;</span> <span class="na">PropertyName=</span><span class="s">&quot;Violations&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>          <span class="nt">&lt;Output</span> <span class="na">TaskParameter=</span><span class="s">&quot;FailedFiles&quot;</span> <span class="na">ItemName=</span><span class="s">&quot;Failures&quot;</span><span class="nt">/&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;/MSBuild.ExtensionPack.CodeQuality.StyleCop&gt;</span>
+</span><span class='line'>    <span class="nt">&lt;Message</span> <span class="na">Text=</span><span class="s">&quot;Succeeded: $(AllPassed), Violations: $(Violations)&quot;</span> <span class="nt">/&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/Target&gt;</span>
+</span><span class='line'><span class="nt">&lt;/Project&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>5.Jenkins中安装插件Violations（可用于展示StyleCop运行结果）</p>
+
+<p><img src="http://img.blog.csdn.net/20150213150641457" alt="这里写图片描述" />
+<img src="http://img.blog.csdn.net/20150213150658883" alt="这里写图片描述" /></p>
+
+<p>6.进入项目配置页面，增加构建步骤，使用MSBuild运行上述的CodeQuailty.targets
+<img src="http://img.blog.csdn.net/20150213150802450" alt="这里写图片描述" /></p>
+
+<p>7.在项目配置页面，增加构建后步骤，开启Report Violations
+<img src="http://img.blog.csdn.net/20150213150821672" alt="这里写图片描述" /></p>
+
+<p>配置StyleCop运行结果的xml路径
+<img src="http://img.blog.csdn.net/20150213150841780" alt="这里写图片描述" /></p>
+
+<p>8.查看build后StyleCop结果
+<img src="http://img.blog.csdn.net/20150213150859518" alt="这里写图片描述" /></p>
+
+<h3>参考</h3>
+
+<ul>
+<li><a href="http://blog.codeinside.eu/2010/12/15/howto-msbuild-stylecop/">http://blog.codeinside.eu/2010/12/15/howto-msbuild-stylecop/</a></li>
+<li><a href="https://ferritedog.wordpress.com/2011/05/27/1-hour-guide-to-continuous-integration-setup-jenkins-meets-net/">https://ferritedog.wordpress.com/2011/05/27/1-hour-guide-to-continuous-integration-setup-jenkins-meets-net/</a></li>
+<li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Violations">https://wiki.jenkins-ci.org/display/JENKINS/Violations</a></li>
+</ul>
+
+</div>
+
+</article>
+
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style addthis_16x16_style">
+	
+	
+	
+	
+	
+	<a class="addthis_button_compact"></a>
+	<a class="addthis_counter addthis_bubble_style"></a>
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/300/addthis_widget.js#pubid="></script>
+</div>
+
+
+
+<section id="comment">
+    <h1 class="title">Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+</section>
+</div>
+			</div>
+			<footer id="footer" class="inner">Copyright &copy; 2015
+
+    cpsa3
+
+
+Design credit: <a href="http://shashankmehta.in/archive/2012/greyshade.html">Shashank Mehta</a></footer>
+			<script src="/javascripts/slash.js"></script>
+<script src="/javascripts/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+	$('.fancybox').fancybox();
+})(jQuery);
+</script> <!-- Delete or comment this line to disable Fancybox -->
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'cpsa3';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://cpsa3.github.io/blog/2015/03/15/jenkinspei-zhi-and-ji-cheng-stylecop/';
+        var disqus_url = 'http://cpsa3.github.io/blog/2015/03/15/jenkinspei-zhi-and-ji-cheng-stylecop/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
