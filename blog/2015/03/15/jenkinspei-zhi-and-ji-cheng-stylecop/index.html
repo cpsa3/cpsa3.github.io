@@ -110,51 +110,50 @@
 
 <h3>系统配置</h3>
 
-<p>配置MSBuild（后续项目构建中需要使用）：</p>
-
-<p><img src="http://img.blog.csdn.net/20150213145641618" alt="这里写图片描述" /></p>
+<p>配置MSBuild（后续项目构建中需要使用）：
+<img src="/images/posts/jenkins/1.png"></p>
 
 <h3>项目配置</h3>
 
 <p>1.新建项目：
-<img src="http://img.blog.csdn.net/20150213145724596" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/2.png"></p>
 
 <p>2.选择项目类型：
-<img src="http://img.blog.csdn.net/20150213145834019" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/3.png"></p>
 
 <p>3.进入项目配置页面
-<img src="http://img.blog.csdn.net/20150213145907575" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/4.png"></p>
 
 <p>4.源码管理
-<img src="http://img.blog.csdn.net/20150213145932301" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/5.png"></p>
 
 <p>5.项目构建
-<img src="http://img.blog.csdn.net/20150213145957729" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/6.png"></p>
 
 <p>6.首先使用MSBuild命名将项目编译后的文件放到临时目录，然后再用batch command将临时目录复制到iis指向的目录。
-<img src="http://img.blog.csdn.net/20150213150101392" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/7.png"></p>
 
 <p>7.配置触发器
 日程表表达式可以参考说明，0 * * * * （表示每个整点运行项目构建）
-<img src="http://img.blog.csdn.net/20150213150130814" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/8.png"></p>
 
 <p>8.构建项目
-<img src="http://img.blog.csdn.net/20150213150215820" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/9.png"></p>
 
 <p>构建信息：
 图中标示的为本次构建的svn revision
-<img src="http://img.blog.csdn.net/20150213150339527" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/10.png"></p>
 
 <p>本次构建的所有变更记录
-<img src="http://img.blog.csdn.net/20150213150359529" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/11.png"></p>
 
 <h3>邮件配置</h3>
 
 <p>1.进入系统配置页面配置邮件发送的SMTP
-<img src="http://img.blog.csdn.net/20150213150443615" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/12.png"></p>
 
 <p>2.进入项目配置页面，配置邮件通知：（每次不稳定构建时会邮件通知）
-<img src="http://img.blog.csdn.net/20150213150503489" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/13.png"></p>
 
 <h3>集成StyleCop</h3>
 
@@ -163,7 +162,7 @@
 <p>2.为了避免所有开发机强依赖StyleCop，这里使用MSBuild.Extension.Pack （4.0.9.0）</p>
 
 <p>3.在项目根目录下，创建目录并复制所有的文件及dll（其中StyleCop.CSharp.dll,StyleCop.CSharp.Rules.dll,StyleCop.dll 是StyleCop安装目录下的3个dll；MSBuild.ExtensionPack.StyleCop.dll,MSBuild.ExtensionPack.tasks是MSBuild.Extension.Pack安装目录下；CodeQuailty.targets是MsBuild需要识别的target文件）
-<img src="http://img.blog.csdn.net/20150213150600239" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/14.png"></p>
 
 <p>4.CodeQuailty.targets</p>
 
@@ -226,22 +225,21 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>5.Jenkins中安装插件Violations（可用于展示StyleCop运行结果）</p>
-
-<p><img src="http://img.blog.csdn.net/20150213150641457" alt="这里写图片描述" />
-<img src="http://img.blog.csdn.net/20150213150658883" alt="这里写图片描述" /></p>
+<p>5.Jenkins中安装插件Violations（可用于展示StyleCop运行结果）
+<img src="/images/posts/jenkins/15.png">
+<img src="/images/posts/jenkins/16.png"></p>
 
 <p>6.进入项目配置页面，增加构建步骤，使用MSBuild运行上述的CodeQuailty.targets
-<img src="http://img.blog.csdn.net/20150213150802450" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/17.png"></p>
 
 <p>7.在项目配置页面，增加构建后步骤，开启Report Violations
-<img src="http://img.blog.csdn.net/20150213150821672" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/18.png"></p>
 
 <p>配置StyleCop运行结果的xml路径
-<img src="http://img.blog.csdn.net/20150213150841780" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/19.png"></p>
 
 <p>8.查看build后StyleCop结果
-<img src="http://img.blog.csdn.net/20150213150859518" alt="这里写图片描述" /></p>
+<img src="/images/posts/jenkins/20.png"></p>
 
 <h3>参考</h3>
 
