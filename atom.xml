@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-03-15T23:12:47+08:00</updated>
+  <updated>2015-03-20T22:34:41+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -12,6 +12,93 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Communication in AngularJS with the Pub/Sub Design Pattern]]></title>
+    <link href="http://cpsa3.github.io/blog/2015/03/20/communication-in-angularjs-with-the-pub-slash-sub-design-pattern/"/>
+    <updated>2015-03-20T22:32:29+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2015/03/20/communication-in-angularjs-with-the-pub-slash-sub-design-pattern</id>
+    <content type="html"><![CDATA[<h3>Code</h3>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">MyApp</span> <span class="o">=</span> <span class="nx">angular</span><span class="p">.</span><span class="nx">module</span><span class="p">(</span><span class="s1">&#39;MyApp&#39;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="nx">MyApp</span><span class="p">.</span><span class="nx">service</span><span class="p">(</span><span class="s1">&#39;messageBus&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;$rootScope&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">$rootScope</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">messageBus</span> <span class="o">=</span> <span class="p">{};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">messageBus</span><span class="p">.</span><span class="nx">publish</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">data</span> <span class="o">=</span> <span class="nx">data</span> <span class="o">||</span> <span class="p">{};</span>
+</span><span class='line'>        <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$emit</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">messageBus</span><span class="p">.</span><span class="nx">subscribe</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">scope</span><span class="p">,</span> <span class="nx">func</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="kd">var</span> <span class="nx">unbind</span> <span class="o">=</span> <span class="nx">$rootScope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="nx">msg</span><span class="p">,</span> <span class="nx">func</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">scope</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="c1">//remove the listener when $scope is destroyed</span>
+</span><span class='line'>            <span class="nx">scope</span><span class="p">.</span><span class="nx">$on</span><span class="p">(</span><span class="s1">&#39;$destroy&#39;</span><span class="p">,</span> <span class="nx">unbind</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="c1">//return the unsubscribe function so the user can do their own memory management</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">unbind</span><span class="p">;</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">messageBus</span><span class="p">;</span>
+</span><span class='line'><span class="p">}]);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Example of use</h3>
+
+<p>Subcribe</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="c1">//you can call unsubcribe to clear the reference to this service and prevent memory leaks</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">unsubcribe</span> <span class="o">=</span> <span class="nx">messageBus</span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="s1">&#39;index.load&#39;</span><span class="p">,</span> <span class="nx">$scope</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">,</span> <span class="nx">data</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="nx">$scope</span><span class="p">.</span><span class="nx">navModel</span> <span class="o">=</span> <span class="nx">data</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Publish</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">messageBus</span><span class="p">.</span><span class="nx">publish</span><span class="p">(</span><span class="s1">&#39;index.load&#39;</span><span class="p">,</span> <span class="nx">data</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>References</h3>
+
+<ul>
+<li><a href="http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/">http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/</a></li>
+<li><a href="https://github.com/angular/angular.js/issues/4574">https://github.com/angular/angular.js/issues/4574</a></li>
+<li><a href="http://stackoverflow.com/questions/11252780/whats-the-correct-way-to-communicate-between-controllers-in-angularjs">http://stackoverflow.com/questions/11252780/whats-the-correct-way-to-communicate-between-controllers-in-angularjs</a></li>
+</ul>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Jenkins配置&amp;集成StyleCop]]></title>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: 前端 | 伏笔]]></title>
+  <link href="http://cpsa3.github.io/blog/categories/qian-duan/atom.xml" rel="self"/>
+  <link href="http://cpsa3.github.io/"/>
+  <updated>2015-03-20T22:34:41+08:00</updated>
+  <id>http://cpsa3.github.io/</id>
+  <author>
+    <name><![CDATA[cpsa3]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Communication in AngularJS with the Pub/Sub Design Pattern]]></title>
+    <link href="http://cpsa3.github.io/blog/2015/03/20/communication-in-angularjs-with-the-pub-slash-sub-design-pattern/"/>
+    <updated>2015-03-20T22:32:29+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2015/03/20/communication-in-angularjs-with-the-pub-slash-sub-design-pattern</id>
+    <content type="html"><![CDATA[<h3>Code</h3>
+
+<pre><code class="javascript">var MyApp = angular.module('MyApp');
+
+MyApp.service('messageBus', ['$rootScope', function($rootScope) {
+    var messageBus = {};
+
+    messageBus.publish = function(msg, data) {
+        data = data || {};
+        $rootScope.$emit(msg, data);
+    };
+
+    messageBus.subscribe = function(msg, scope, func) {
+        var unbind = $rootScope.$on(msg, func);
+        if (scope) {
+            //remove the listener when $scope is destroyed
+            scope.$on('$destroy', unbind);
+        }
+        //return the unsubscribe function so the user can do their own memory management
+        return unbind;
+    };
+
+    return messageBus;
+}]);
+</code></pre>
+
+<h3>Example of use</h3>
+
+<p>Subcribe
+<code>javascript
+//you can call unsubcribe to clear the reference to this service and prevent memory leaks
+var unsubcribe = messageBus.subscribe('index.load', $scope, function(event, data) {
+    $scope.navModel = data;
+});
+</code></p>
+
+<p>Publish
+<code>javascript
+messageBus.publish('index.load', data);
+</code></p>
+
+<h3>References</h3>
+
+<ul>
+<li><a href="http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/">http://toddmotto.com/all-about-angulars-emit-broadcast-on-publish-subscribing/</a></li>
+<li><a href="https://github.com/angular/angular.js/issues/4574">https://github.com/angular/angular.js/issues/4574</a></li>
+<li><a href="http://stackoverflow.com/questions/11252780/whats-the-correct-way-to-communicate-between-controllers-in-angularjs">http://stackoverflow.com/questions/11252780/whats-the-correct-way-to-communicate-between-controllers-in-angularjs</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
