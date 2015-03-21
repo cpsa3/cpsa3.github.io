@@ -328,6 +328,13 @@ $header-height: 30px;
 					border: 1px solid darken(#e32529, 10%);
 				}
 			}
+			&.douban{
+				background: image-url('social/douban.png') center no-repeat #1C691A;
+				border: 1px solid #1C691A;
+				&:hover{
+					border: 1px solid darken(#1C691A, 10%);
+				}
+			}
 			&.dribbble{
 				background: image-url('social/dribbble.png') center no-repeat #c5376d;
 				border: 1px solid #c5376d;
