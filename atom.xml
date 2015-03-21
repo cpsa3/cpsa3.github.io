@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-03-21T20:19:39+08:00</updated>
+  <updated>2015-03-21T21:18:52+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -12,6 +12,145 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Git常用命令]]></title>
+    <link href="http://cpsa3.github.io/blog/2015/03/21/gitchang-yong-ming-ling/"/>
+    <updated>2015-03-21T21:13:40+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2015/03/21/gitchang-yong-ming-ling</id>
+    <content type="html"><![CDATA[<p>提交代码</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">status</span> <span class="c1">//查看本地版本状态</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">add</span> <span class="p">.</span> <span class="c1">//添加本地修改文件</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">add</span> <span class="o">-</span><span class="nx">A</span> <span class="c1">//会将未通过git rm删除的文件全部stage</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="s1">&#39;comment&#39;</span> <span class="c1">//提交到本地仓库</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span> <span class="c1">//提交到远程仓库</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>查看历史</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="c1">// 一行显示log(不能察看已删除的commit记录)</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">reflog</span> <span class="c1">//可查看所有分支的所有操作记录(包括已经删除的commit)</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">show</span> <span class="nx">commit</span><span class="o">-</span><span class="nx">id</span> <span class="c1">// 查看某次修改</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>本地代码回滚</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">reset</span> <span class="nx">HEAD</span> <span class="c1">//回滚至最新一次的提交</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">hard</span> <span class="nx">commit</span><span class="o">-</span><span class="nx">id</span> <span class="c1">//回滚到commit-id，将commit-id之后提交的commit都去除 </span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">reset</span> <span class="o">--</span><span class="nx">hard</span> <span class="nx">HEAD</span><span class="o">~</span><span class="mi">3</span> <span class="c1">//将最近3次的提交回滚</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>获取远程版本</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">pull</span> <span class="c1">//从远程获取最新版本并合并到本地仓库：等同于git fetch + git mearge</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>撤销修改</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span> <span class="o">&lt;</span><span class="nx">filename</span><span class="o">&gt;</span> <span class="c1">//撤销某文件修改</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="p">.</span> <span class="c1">//撤销所有未提交修改</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>标签功能</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">tag</span> <span class="c1">// 显示所有标签</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">tag</span> <span class="nx">v1</span><span class="p">.</span><span class="mi">3</span> <span class="c1">// 简单打标签 </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除文件</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">rm</span> <span class="o">&lt;</span><span class="nx">filename</span><span class="o">&gt;</span> <span class="c1">//直接删除文件</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">rm</span> <span class="o">--</span><span class="nx">cached</span> <span class="o">&lt;</span><span class="nx">filename</span><span class="o">&gt;</span> <span class="c1">//删除文件暂存状态</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>文件比较</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">diff</span> <span class="c1">//查看未暂存的文件更新 </span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">diff</span> <span class="o">--</span><span class="nx">cached</span> <span class="c1">//查看已暂存文件的更新 </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>创建分支</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="nx">develop</span> <span class="c1">//只创建分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">b</span> <span class="nx">master</span> <span class="nx">develop</span> <span class="c1">//创建并切换到develop分支 </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>合并分支</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="nx">master</span> <span class="c1">//切换到主分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">merge</span> <span class="o">--</span><span class="nx">no</span><span class="o">-</span><span class="nx">ff</span> <span class="nx">develop</span> <span class="c1">//把develop合并到master分支，no-ff选项的作用是保留原分支记录</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">rebase</span> <span class="nx">develop</span> <span class="c1">//合并分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">-</span><span class="nx">d</span> <span class="nx">develop</span> <span class="c1">//删除develop分支</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Git设置</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">list</span> <span class="c1">//列出global配置</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="s2">&quot;xx&quot;</span> <span class="c1">//设置user.name</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="s2">&quot;xx@xx.com&quot;</span> <span class="c1">////设置user.email</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>初始化项目</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">cd</span> <span class="p">[</span><span class="kr">package</span> <span class="nx">folder</span><span class="p">]</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">init</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">add</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">commit</span> <span class="o">-</span><span class="nx">m</span> <span class="s2">&quot;Initial&quot;</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">remote</span> <span class="nx">add</span> <span class="nx">origin</span> <span class="p">[</span><span class="nx">your</span> <span class="nx">git</span> <span class="nx">repo</span><span class="p">]</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="nx">master</span> <span class="c1">//同步远程库最新代码至本地</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="nx">master</span>
+</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Communication in AngularJS with the Pub/Sub Design Pattern]]></title>
