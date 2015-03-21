@@ -4,7 +4,7 @@
   <title><![CDATA[Category: life | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/life/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-03-20T22:34:41+08:00</updated>
+  <updated>2015-03-21T20:19:39+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -21,29 +21,6 @@
     <content type="html"><![CDATA[<p>90后，程序员，宅男
 偏爱动漫，但对游戏无感
 时而2B，时而文艺</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[hello world]]></title>
-    <link href="http://cpsa3.github.io/blog/2014/11/14/hello-world/"/>
-    <updated>2014-11-14T01:05:33+08:00</updated>
-    <id>http://cpsa3.github.io/blog/2014/11/14/hello-world</id>
-    <content type="html"><![CDATA[<h4>JavaScript</h4>
-
-<pre><code class="javascript">    Console.log('Hello World');
-</code></pre>
-
-<h4>Python</h4>
-
-<pre><code class="python">@requires_authorization
-class SomeClass:
-    pass
-
-if __name__ == '__main__':
-    # A comment
-    print 'hello world'
-</code></pre>
 ]]></content>
   </entry>
   
