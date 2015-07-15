@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 前端 | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/qian-duan/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-03-25T00:04:31+08:00</updated>
+  <updated>2015-07-15T23:18:42+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -12,6 +12,53 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[JS Tips]]></title>
+    <link href="http://cpsa3.github.io/blog/2015/07/15/js-tips/"/>
+    <updated>2015-07-15T23:05:59+08:00</updated>
+    <id>http://cpsa3.github.io/blog/2015/07/15/js-tips</id>
+    <content type="html"><![CDATA[<p>1.undefined, null, 0, false, NaN，&#8217;&lsquo;（空字符串）都为假</p>
+
+<p>2.从一个数组中获取随机项
+<code>javascript
+var items = [1, 2, 3, 'xx', 'zz', 23, 32, 123];  
+var randomItem = items[Math.floor(Math.random() * items.length)];
+</code></p>
+
+<p>3.从一个特定范围内获取随机数
+<code>javascript
+var x = Math.floor(Math.random() * (max - min + 1)) + min;  
+</code></p>
+
+<p>4.生成一个值从0到设定最大值的数字数组
+<code>javascript
+var numbersArray = [], max = 100;  
+for(var i = 1; numbersArray.push(i++) &lt; max;);    
+</code></p>
+
+<p>5.生成随机字母数字字符集
+【解释：Math.random()生成0到1之间的随机数，number.toString(36)是将这个数字转换成36进制（0-9，a-z）,最后substr去掉前面的&#8221;0.&ldquo;字符串】
+<code>javascript
+function generateRandomAlphaNum(len) {  
+    var rdmString = "";
+    for( ; rdmString.length &lt; len; rdmString  += Math.random().toString(36).substr(2));
+    return  rdmString.substr(0, len);
+}
+</code></p>
+
+<p>6.打乱一个数字数组
+<code>javascript
+var numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411];
+numbers.sort(function(){ return Math.random() - 0.5; });  
+</code></p>
+
+<p>7.String的trim函数(在最新的javascript引擎中已经有了原生的trim函数实现)
+<code>javascript
+String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");};
+</code></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Communication in AngularJS with the Pub/Sub Design Pattern]]></title>
