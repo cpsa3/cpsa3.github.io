@@ -1,0 +1,48 @@
+---
+layout: post
+title: "JS Tips"
+date: 2015-07-15 23:05:59 +0800
+comments: true
+categories: ['前端']
+---
+1.undefined, null, 0, false, NaN，''（空字符串）都为假
+
+2.从一个数组中获取随机项
+```javascript
+var items = [1, 2, 3, 'xx', 'zz', 23, 32, 123];  
+var randomItem = items[Math.floor(Math.random() * items.length)];
+```
+
+
+3.从一个特定范围内获取随机数
+```javascript
+var x = Math.floor(Math.random() * (max - min + 1)) + min;  
+```
+
+
+4.生成一个值从0到设定最大值的数字数组
+```javascript
+var numbersArray = [], max = 100;  
+for(var i = 1; numbersArray.push(i++) < max;);    
+```
+
+5.生成随机字母数字字符集
+【解释：Math.random()生成0到1之间的随机数，number.toString(36)是将这个数字转换成36进制（0-9，a-z）,最后substr去掉前面的"0."字符串】
+```javascript
+function generateRandomAlphaNum(len) {  
+    var rdmString = "";
+    for( ; rdmString.length < len; rdmString  += Math.random().toString(36).substr(2));
+    return  rdmString.substr(0, len); 
+}
+```
+
+6.打乱一个数字数组
+```javascript
+var numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411]; 
+numbers.sort(function(){ return Math.random() - 0.5; });  
+```
+
+7.String的trim函数(在最新的javascript引擎中已经有了原生的trim函数实现)
+```javascript
+String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");}; 
+```
