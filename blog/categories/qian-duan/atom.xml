@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 前端 | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/qian-duan/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-07-19T19:44:19+08:00</updated>
+  <updated>2015-07-19T20:48:52+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -79,10 +79,92 @@ String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");};
 var argArray = Array.prototype.slice.call(arguments);  
 </code></p>
 
-<p>10.验证参数是否是数值类型
+<p>10.验证参数是否是数值类型（isNaN函数用于检查参数是否是非数字值；parseFloat函数解析一个字符串，并返回一个浮点数；isFinite函数用于检查参数是否为无穷大）
 <code>javascript
 function isNumber(n){  
     return !isNaN(parseFloat(n)) &amp;&amp; isFinite(n);
+};
+</code></p>
+
+<p>11.在数字数组中获取最大或最小值
+<code>javascript
+var  numbers = [5, 458 , 120 , -215 , 228 , 400 , 122205, -85411];  
+var maxInNumbers = Math.max.apply(Math, numbers);  
+var minInNumbers = Math.min.apply(Math, numbers);  
+</code></p>
+
+<p>12.清空一个数组
+<code>javascript
+var myArray = [12, 222, 1000];  
+myArray.length = 0;  // myArray will be equal to [].  
+</code></p>
+
+<p>13.不要使用delete删除数组中的项（使用splice而不是delete从数组中删除某个项，使用delete将要删除项替换为undefined而不是从数组中将它真正删除。delete方法应该被用来删除一个对象的某个属性。）
+<code>javascript
+var items = [12, 548 ,'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' ,2154 , 119 ];  
+items.length; // return 11  
+delete items[3]; // return true  
+items.length; // return 11  
+/* items will be equal to [12, 548, "a", undefined × 1, 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119] */
+</code></p>
+
+<pre><code class="javascript">var items = [12, 548 ,'a' , 2 , 5478 , 'foo' , 8852, , 'Doe' ,2154 , 119 ];  
+items.length; // return 11  
+items.splice(3,1) ;  
+items.length; // return 10  
+/* items will be equal to [12, 548, "a", 5478, "foo", 8852, undefined × 1, "Doe", 2154, 119] */
+</code></pre>
+
+<p>14.使用length截断一个数组
+<code>javascript
+var myArray = [12 , 222 , 1000 , 124 , 98 , 10 ];  
+myArray.length = 4; // myArray will be equal to [12 , 222 , 1000 , 124]  
+</code></p>
+
+<p>15.使用逻辑AND/OR做条件判断
+<code>javascript
+var foo = 10;  
+foo == 10 &amp;&amp; doSomething(); // is the same thing as if (foo == 10) doSomething();  
+foo == 5 || doSomething(); // is the same thing as if (foo != 5) doSomething();   
+</code></p>
+
+<p>16.使用map方法来遍历一个数组里的项
+<code>javascript
+var squares = [1,2,3,4].map(function (val) {  
+    return val * val;  
+});
+// squares will be equal to [1, 4, 9, 16]
+</code></p>
+
+<p>17.四舍五入一个数字，保留N位小数（注意：toFixed方法返回的是一个字符串而不是数值）
+<code>javascript
+var num =2.443242342;  
+num = num.toFixed(4);  // num will be equal to 2.4432
+</code></p>
+
+<p>18.浮点数问题（所有的javascript数字在内部都是以64位二进制表示的浮点数，符合IEEE 754标准。可以使用toFixed()和toPrecision()方法解决这个问题）
+<code>javascript
+0.1 + 0.2 === 0.3 // is false  
+9007199254740992 + 1 // is equal to 9007199254740992  
+9007199254740992 + 2 // is equal to 9007199254740994  
+</code></p>
+
+<p>20.基于JSON的序列化和反序列化
+<code>javascript
+var person = {name :'Saad', age : 26, department : {ID : 15, name : "R&amp;D"} };  
+var stringFromPerson = JSON.stringify(person);  
+/* stringFromPerson is equal to "{"name":"Saad","age":26,"department":{"ID":15,"name":"R&amp;D"}}" */
+var personFromString = JSON.parse(stringFromPerson);  
+/* personFromString is equal to person object */
+</code></p>
+
+<p>21.一个HTML转义函数
+<code>javascript
+function escapeHTML(text) {  
+    var replacements= {"&lt;": "&amp;lt;", "&gt;": "&amp;gt;","&amp;": "&amp;amp;", "\"": "&amp;quot;"};                      
+    return text.replace(/[&lt;&gt;&amp;"]/g, function(character) {  
+        return replacements[character];  
+    });
 };
 </code></p>
 ]]></content>

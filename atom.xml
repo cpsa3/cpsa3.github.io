@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-07-19T19:44:19+08:00</updated>
+  <updated>2015-07-19T20:48:52+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -113,13 +113,148 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>10.验证参数是否是数值类型</p>
+<p>10.验证参数是否是数值类型（isNaN函数用于检查参数是否是非数字值；parseFloat函数解析一个字符串，并返回一个浮点数；isFinite函数用于检查参数是否为无穷大）</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">isNumber</span><span class="p">(</span><span class="nx">n</span><span class="p">){</span>
 </span><span class='line'>    <span class="k">return</span> <span class="o">!</span><span class="nb">isNaN</span><span class="p">(</span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">n</span><span class="p">))</span> <span class="o">&amp;&amp;</span> <span class="nb">isFinite</span><span class="p">(</span><span class="nx">n</span><span class="p">);</span>
+</span><span class='line'><span class="p">};</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>11.在数字数组中获取最大或最小值</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span>  <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">458</span> <span class="p">,</span> <span class="mi">120</span> <span class="p">,</span> <span class="o">-</span><span class="mi">215</span> <span class="p">,</span> <span class="mi">228</span> <span class="p">,</span> <span class="mi">400</span> <span class="p">,</span> <span class="mi">122205</span><span class="p">,</span> <span class="o">-</span><span class="mi">85411</span><span class="p">];</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">maxInNumbers</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">Math</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">);</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">minInNumbers</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">.</span><span class="nx">apply</span><span class="p">(</span><span class="nb">Math</span><span class="p">,</span> <span class="nx">numbers</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>12.清空一个数组</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">1000</span><span class="p">];</span>
+</span><span class='line'><span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>  <span class="c1">// myArray will be equal to [].  </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>13.不要使用delete删除数组中的项（使用splice而不是delete从数组中删除某个项，使用delete将要删除项替换为undefined而不是从数组中将它真正删除。delete方法应该被用来删除一个对象的某个属性。）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">548</span> <span class="p">,</span><span class="s1">&#39;a&#39;</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">5478</span> <span class="p">,</span> <span class="s1">&#39;foo&#39;</span> <span class="p">,</span> <span class="mi">8852</span><span class="p">,</span> <span class="p">,</span> <span class="s1">&#39;Doe&#39;</span> <span class="p">,</span><span class="mi">2154</span> <span class="p">,</span> <span class="mi">119</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// return 11  </span>
+</span><span class='line'><span class="k">delete</span> <span class="nx">items</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span> <span class="c1">// return true  </span>
+</span><span class='line'><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// return 11  </span>
+</span><span class='line'><span class="cm">/* items will be equal to [12, 548, &quot;a&quot;, undefined × 1, 5478, &quot;foo&quot;, 8852, undefined × 1, &quot;Doe&quot;, 2154, 119] */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">items</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span><span class="p">,</span> <span class="mi">548</span> <span class="p">,</span><span class="s1">&#39;a&#39;</span> <span class="p">,</span> <span class="mi">2</span> <span class="p">,</span> <span class="mi">5478</span> <span class="p">,</span> <span class="s1">&#39;foo&#39;</span> <span class="p">,</span> <span class="mi">8852</span><span class="p">,</span> <span class="p">,</span> <span class="s1">&#39;Doe&#39;</span> <span class="p">,</span><span class="mi">2154</span> <span class="p">,</span> <span class="mi">119</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// return 11  </span>
+</span><span class='line'><span class="nx">items</span><span class="p">.</span><span class="nx">splice</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span>
+</span><span class='line'><span class="nx">items</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="c1">// return 10  </span>
+</span><span class='line'><span class="cm">/* items will be equal to [12, 548, &quot;a&quot;, 5478, &quot;foo&quot;, 8852, undefined × 1, &quot;Doe&quot;, 2154, 119] */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>14.使用length截断一个数组</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">myArray</span> <span class="o">=</span> <span class="p">[</span><span class="mi">12</span> <span class="p">,</span> <span class="mi">222</span> <span class="p">,</span> <span class="mi">1000</span> <span class="p">,</span> <span class="mi">124</span> <span class="p">,</span> <span class="mi">98</span> <span class="p">,</span> <span class="mi">10</span> <span class="p">];</span>
+</span><span class='line'><span class="nx">myArray</span><span class="p">.</span><span class="nx">length</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// myArray will be equal to [12 , 222 , 1000 , 124]  </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>15.使用逻辑AND/OR做条件判断</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">foo</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+</span><span class='line'><span class="nx">foo</span> <span class="o">==</span> <span class="mi">10</span> <span class="o">&amp;&amp;</span> <span class="nx">doSomething</span><span class="p">();</span> <span class="c1">// is the same thing as if (foo == 10) doSomething();  </span>
+</span><span class='line'><span class="nx">foo</span> <span class="o">==</span> <span class="mi">5</span> <span class="o">||</span> <span class="nx">doSomething</span><span class="p">();</span> <span class="c1">// is the same thing as if (foo != 5) doSomething();   </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>16.使用map方法来遍历一个数组里的项</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">squares</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">].</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">val</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">val</span> <span class="o">*</span> <span class="nx">val</span><span class="p">;</span>
+</span><span class='line'><span class="p">});</span>
+</span><span class='line'><span class="c1">// squares will be equal to [1, 4, 9, 16]</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>17.四舍五入一个数字，保留N位小数（注意：toFixed方法返回的是一个字符串而不是数值）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">num</span> <span class="o">=</span><span class="mf">2.443242342</span><span class="p">;</span>
+</span><span class='line'><span class="nx">num</span> <span class="o">=</span> <span class="nx">num</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mi">4</span><span class="p">);</span>  <span class="c1">// num will be equal to 2.4432 </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>18.浮点数问题（所有的javascript数字在内部都是以64位二进制表示的浮点数，符合IEEE 754标准。可以使用toFixed()和toPrecision()方法解决这个问题）</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="mf">0.1</span> <span class="o">+</span> <span class="mf">0.2</span> <span class="o">===</span> <span class="mf">0.3</span> <span class="c1">// is false  </span>
+</span><span class='line'><span class="mi">9007199254740992</span> <span class="o">+</span> <span class="mi">1</span> <span class="c1">// is equal to 9007199254740992  </span>
+</span><span class='line'><span class="mi">9007199254740992</span> <span class="o">+</span> <span class="mi">2</span> <span class="c1">// is equal to 9007199254740994  </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>20.基于JSON的序列化和反序列化</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span><span class="nx">name</span> <span class="o">:</span><span class="s1">&#39;Saad&#39;</span><span class="p">,</span> <span class="nx">age</span> <span class="o">:</span> <span class="mi">26</span><span class="p">,</span> <span class="nx">department</span> <span class="o">:</span> <span class="p">{</span><span class="nx">ID</span> <span class="o">:</span> <span class="mi">15</span><span class="p">,</span> <span class="nx">name</span> <span class="o">:</span> <span class="s2">&quot;R&amp;D&quot;</span><span class="p">}</span> <span class="p">};</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">stringFromPerson</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">person</span><span class="p">);</span>
+</span><span class='line'><span class="cm">/* stringFromPerson is equal to &quot;{&quot;name&quot;:&quot;Saad&quot;,&quot;age&quot;:26,&quot;department&quot;:{&quot;ID&quot;:15,&quot;name&quot;:&quot;R&amp;D&quot;}}&quot; */</span>
+</span><span class='line'><span class="kd">var</span> <span class="nx">personFromString</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">stringFromPerson</span><span class="p">);</span>
+</span><span class='line'><span class="cm">/* personFromString is equal to person object */</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>21.一个HTML转义函数</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="kd">function</span> <span class="nx">escapeHTML</span><span class="p">(</span><span class="nx">text</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">replacements</span><span class="o">=</span> <span class="p">{</span><span class="s2">&quot;&lt;&quot;</span><span class="o">:</span> <span class="s2">&quot;&amp;lt;&quot;</span><span class="p">,</span> <span class="s2">&quot;&gt;&quot;</span><span class="o">:</span> <span class="s2">&quot;&amp;gt;&quot;</span><span class="p">,</span><span class="s2">&quot;&amp;&quot;</span><span class="o">:</span> <span class="s2">&quot;&amp;amp;&quot;</span><span class="p">,</span> <span class="s2">&quot;\&quot;&quot;</span><span class="o">:</span> <span class="s2">&quot;&amp;quot;&quot;</span><span class="p">};</span>
+</span><span class='line'>    <span class="k">return</span> <span class="nx">text</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="sr">/[&lt;&gt;&amp;&quot;]/g</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">character</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>        <span class="k">return</span> <span class="nx">replacements</span><span class="p">[</span><span class="nx">character</span><span class="p">];</span>
+</span><span class='line'>    <span class="p">});</span>
 </span><span class='line'><span class="p">};</span>
 </span></code></pre></td></tr></table></div></figure>
 
