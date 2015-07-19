@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 前端 | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/qian-duan/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-07-15T23:18:42+08:00</updated>
+  <updated>2015-07-19T19:44:19+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -56,6 +56,34 @@ numbers.sort(function(){ return Math.random() - 0.5; });
 <p>7.String的trim函数(在最新的javascript引擎中已经有了原生的trim函数实现)
 <code>javascript
 String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");};
+</code></p>
+
+<p>8.创建立即调用函数表达式（IIFE）。
+<code>javascript
+// lambda函数调用法
+(function() {
+    // some private code that will be executed automatically
+}());
+// 模块模式
+(function() {
+    // some private code that will be executed automatically
+})();
+(function(a, b) {
+    var result = a + b;
+    return result;
+})(10, 20);
+</code></p>
+
+<p>9.将arguments对象转换成一个数组
+<code>javascript
+var argArray = Array.prototype.slice.call(arguments);  
+</code></p>
+
+<p>10.验证参数是否是数值类型
+<code>javascript
+function isNumber(n){  
+    return !isNaN(parseFloat(n)) &amp;&amp; isFinite(n);
+};
 </code></p>
 ]]></content>
   </entry>
