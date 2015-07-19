@@ -13,12 +13,10 @@ var items = [1, 2, 3, 'xx', 'zz', 23, 32, 123];
 var randomItem = items[Math.floor(Math.random() * items.length)];
 ```
 
-
 3.从一个特定范围内获取随机数
 ```javascript
 var x = Math.floor(Math.random() * (max - min + 1)) + min;  
 ```
-
 
 4.生成一个值从0到设定最大值的数字数组
 ```javascript
@@ -45,4 +43,32 @@ numbers.sort(function(){ return Math.random() - 0.5; });
 7.String的trim函数(在最新的javascript引擎中已经有了原生的trim函数实现)
 ```javascript
 String.prototype.trim = function(){return this.replace(/^\s+|\s+$/g, "");}; 
+```
+
+8.创建立即调用函数表达式（IIFE）。
+```javascript
+// lambda函数调用法
+(function() {
+    // some private code that will be executed automatically
+}());
+// 模块模式
+(function() {
+    // some private code that will be executed automatically
+})();
+(function(a, b) {
+    var result = a + b;
+    return result;
+})(10, 20);
+```
+
+9.将arguments对象转换成一个数组
+```javascript
+var argArray = Array.prototype.slice.call(arguments);  
+```
+
+10.验证参数是否是数值类型
+```javascript
+function isNumber(n){  
+    return !isNaN(parseFloat(n)) && isFinite(n); 
+};
 ```
