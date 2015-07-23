@@ -403,7 +403,9 @@ Mar 21,&nbsp 2015</div>
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">pretty</span><span class="o">=</span><span class="nx">oneline</span> <span class="c1">// 一行显示log(不能察看已删除的commit记录)</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">log</span> <span class="o">--</span><span class="nx">stat</span> <span class="c1">//查看提交统计信息</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">reflog</span> <span class="c1">//可查看所有分支的所有操作记录(包括已经删除的commit)</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">show</span> <span class="nx">commit</span><span class="o">-</span><span class="nx">id</span> <span class="c1">// 查看某次修改</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -463,12 +465,38 @@ Mar 21,&nbsp 2015</div>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p>创建分支</p>
+<p>分支操作</p>
 
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="nx">develop</span> <span class="c1">//只创建分支</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//创建本地分支</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">b</span> <span class="nx">master</span> <span class="nx">develop</span> <span class="c1">//创建并切换到develop分支 </span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">-</span><span class="nx">r</span> <span class="c1">//查看远程分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="c1">//查看本地分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">-</span><span class="nx">av</span> <span class="c1">//查看所有分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//将本地分支push至远程服务器</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//切换本地分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">-</span><span class="nx">d</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//删除本地分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="o">:&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//删除远程分支（本地分支会保留）</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">push</span> <span class="nx">origin</span> <span class="o">&lt;</span><span class="nx">local_branch_name</span><span class="o">&gt;:&lt;</span><span class="nx">remote_branch_name</span><span class="o">&gt;</span> <span class="c1">//push本地分支至远程分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">b</span> <span class="nx">dev</span> <span class="nx">origin</span><span class="o">/</span><span class="nx">dev</span> <span class="c1">//获取远程分支到本地，并自动建立tracking</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">t</span> <span class="nx">origin</span><span class="o">/</span><span class="nx">dev</span> <span class="c1">//获取远程分支到本地，并自动建立tracking</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span><span class="nx">track</span> <span class="nx">origin</span><span class="o">/</span><span class="nx">dev</span> <span class="c1">//获取远程分支到本地，并自动建立tracking</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">mearge</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//分支合并（将指定名称的分支与当前分支合并）</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//拉去远程分支</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -490,9 +518,13 @@ Mar 21,&nbsp 2015</div>
 <figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">list</span> <span class="c1">//列出global配置</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">list</span> <span class="c1">//查看config</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">--</span><span class="nx">global</span> <span class="o">--</span><span class="nx">list</span>  <span class="c1">//查看全局config </span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="s2">&quot;xx&quot;</span> <span class="c1">//设置user.name</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="s2">&quot;xx@xx.com&quot;</span> <span class="c1">////设置user.email</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">remote</span> <span class="o">-</span><span class="nx">v</span> <span class="c1">//查看远程分支别名</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
