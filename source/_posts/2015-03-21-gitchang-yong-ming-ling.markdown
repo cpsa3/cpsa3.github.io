@@ -75,6 +75,7 @@ git checkout -t origin/dev //获取远程分支到本地，并自动建立tracki
 git checkout --track origin/dev //获取远程分支到本地，并自动建立tracking
 git mearge <branch_name> //分支合并（将指定名称的分支与当前分支合并）
 git pull origin <branch_name> //拉去远程分支
+git merge --abort //undo mearge[Since git version 1.7.4]
 ```
 
 合并分支
