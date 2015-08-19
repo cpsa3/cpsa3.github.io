@@ -4,7 +4,7 @@
   <title><![CDATA[伏笔]]></title>
   <link href="http://cpsa3.github.io/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-07-24T03:16:06+08:00</updated>
+  <updated>2015-08-19T22:23:01+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -365,6 +365,7 @@
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
+<span class='line-number'>16</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//创建本地分支</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">-</span><span class="nx">b</span> <span class="nx">master</span> <span class="nx">develop</span> <span class="c1">//创建并切换到develop分支 </span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">branch</span> <span class="o">-</span><span class="nx">r</span> <span class="c1">//查看远程分支</span>
@@ -380,6 +381,7 @@
 </span><span class='line'><span class="nx">git</span> <span class="nx">checkout</span> <span class="o">--</span><span class="nx">track</span> <span class="nx">origin</span><span class="o">/</span><span class="nx">dev</span> <span class="c1">//获取远程分支到本地，并自动建立tracking</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">mearge</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//分支合并（将指定名称的分支与当前分支合并）</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">pull</span> <span class="nx">origin</span> <span class="o">&lt;</span><span class="nx">branch_name</span><span class="o">&gt;</span> <span class="c1">//拉去远程分支</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">merge</span> <span class="o">--</span><span class="nx">abort</span> <span class="c1">//undo mearge[Since git version 1.7.4]</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
