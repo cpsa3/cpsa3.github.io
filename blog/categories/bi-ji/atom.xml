@@ -4,7 +4,7 @@
   <title><![CDATA[Category: 笔记 | 伏笔]]></title>
   <link href="http://cpsa3.github.io/blog/categories/bi-ji/atom.xml" rel="self"/>
   <link href="http://cpsa3.github.io/"/>
-  <updated>2015-11-21T23:22:31+08:00</updated>
+  <updated>2016-01-23T12:40:12+08:00</updated>
   <id>http://cpsa3.github.io/</id>
   <author>
     <name><![CDATA[cpsa3]]></name>
@@ -27,6 +27,33 @@ git commit -m 'comment' //提交到本地仓库
 git push origin master //提交到远程仓库
 </code></p>
 
+<p>创建远程分支：
+<code>javascript
+git branch dev9.2 // 创建新本地分支
+git checkout dev9.2 //切换至新本地分支
+git add .
+git commit -m '新提交'
+git push origin &lt;local_branch_name&gt;:&lt;remote_branch_name&gt; //push本地分支至远程分支
+</code></p>
+
+<p>clone分支并建立tracking：
+<code>javascript
+git clone https://github.com/cpsa3/hello-world.git dev9.2
+git checkout -t origin/dev9.2 //获取远程分支到本地，并自动建立tracking
+</code></p>
+
+<p>创建tag:
+<code>javascript
+git tag -a v1.4 -m 'version 1.4'  //创建含附注的标签
+git tag //显示已有标签
+git tag -d v1.0.0 //删除本地标签 v1.0.0
+git push origin :refs/tags/v1.0.0 //删除远程tag
+git push origin v1.0.0 //推送本地tag至远程（命令和推送远程分支一样，优先识别为分支）
+git show v1.0.0 //显示tag或branch信息
+git push origin :&lt;branch_name&gt; //删除远程分支（本地分支会保留）
+git checkout -b branch_name tag_name //从tag创建分支
+</code></p>
+
 <p>查看历史
 <code>javascript
 git log --pretty=oneline // 一行显示log(不能察看已删除的commit记录)
@@ -40,6 +67,17 @@ git show commit-id // 查看某次修改
 git reset HEAD //回滚至最新一次的提交
 git reset --hard commit-id //回滚到commit-id，将commit-id之后提交的commit都去除
 git reset --hard HEAD~3 //将最近3次的提交回滚
+</code></p>
+
+<p>回滚远程代码(原理：先将本地分支退回到某个commit，删除远程分支，再重新push本地分支):
+<code>javascript
+git checkout the_branch
+git pull
+git branch the_branch_backup //备份一下这个分支当前的情况
+git reset --hard the_commit_id //把the_branch本地回滚到the_commit_id
+git push origin :the_branch //删除远程 the_branch
+git push origin the_branch //用回滚后的本地分支重新建立远程分支
+git push origin :the_branch_backup //如果前面都成功了，删除这个备份分支
 </code></p>
 
 <p>获取远程版本
@@ -120,7 +158,7 @@ git branch -d develop //删除develop分支
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">&amp;</span><span class="nx">ndash</span><span class="p">;</span><span class="nx">list</span> <span class="c1">//查看config</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="o">&amp;</span><span class="nx">ndash</span><span class="p">;</span><span class="nx">global</span> <span class="o">&amp;</span><span class="nx">ndash</span><span class="p">;</span><span class="nx">list</span>  <span class="c1">//查看全局config</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">name</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="nx">xx</span><span class="o">&amp;</span><span class="nx">rdquo</span><span class="p">;</span> <span class="c1">//设置user.name</span>
-</span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&amp;#109;&amp;#97;&amp;#105;&amp;#108;&amp;#116;&amp;#111;&amp;#58;&amp;#x78;&amp;#120;&amp;#x40;&amp;#x78;&amp;#120;&amp;#46;&amp;#x63;&amp;#x6f;&amp;#x6d;&quot;</span><span class="o">&gt;&amp;</span><span class="err">#</span><span class="mi">120</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">120</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">64</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x78</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x78</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">46</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x63</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x6f</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x6d</span><span class="p">;</span><span class="o">&lt;</span><span class="sr">/a&gt;&amp;rdquo; /</span><span class="c1">///设置user.email</span>
+</span><span class='line'><span class="nx">git</span> <span class="nx">config</span> <span class="nx">user</span><span class="p">.</span><span class="nx">email</span> <span class="o">&amp;</span><span class="nx">ldquo</span><span class="p">;</span><span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">&quot;&amp;#x6d;&amp;#x61;&amp;#105;&amp;#x6c;&amp;#x74;&amp;#x6f;&amp;#58;&amp;#120;&amp;#x78;&amp;#x40;&amp;#120;&amp;#120;&amp;#46;&amp;#99;&amp;#111;&amp;#109;&quot;</span><span class="o">&gt;&amp;</span><span class="err">#</span><span class="mi">120</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x78</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">64</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">120</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="nx">x78</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">46</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">99</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">111</span><span class="p">;</span><span class="o">&amp;</span><span class="err">#</span><span class="mi">109</span><span class="p">;</span><span class="o">&lt;</span><span class="sr">/a&gt;&amp;rdquo; /</span><span class="c1">///设置user.email</span>
 </span><span class='line'><span class="nx">git</span> <span class="nx">remote</span> <span class="o">-</span><span class="nx">v</span> <span class="c1">//查看远程分支别名&lt;/p&gt;</span>
 </span><span class='line'>
 </span><span class='line'><span class="o">&lt;</span><span class="nx">pre</span><span class="o">&gt;&lt;</span><span class="nx">code</span><span class="o">&gt;</span>
