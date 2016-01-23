@@ -14,6 +14,33 @@ git commit -m 'comment' //提交到本地仓库
 git push origin master //提交到远程仓库
 ```
 
+创建远程分支：
+```javascript
+git branch dev9.2 // 创建新本地分支
+git checkout dev9.2 //切换至新本地分支
+git add .
+git commit -m '新提交'
+git push origin <local_branch_name>:<remote_branch_name> //push本地分支至远程分支
+```
+
+clone分支并建立tracking：
+```javascript
+git clone https://github.com/cpsa3/hello-world.git dev9.2
+git checkout -t origin/dev9.2 //获取远程分支到本地，并自动建立tracking
+```
+
+创建tag:
+```javascript
+git tag -a v1.4 -m 'version 1.4'  //创建含附注的标签
+git tag //显示已有标签
+git tag -d v1.0.0 //删除本地标签 v1.0.0
+git push origin :refs/tags/v1.0.0 //删除远程tag
+git push origin v1.0.0 //推送本地tag至远程（命令和推送远程分支一样，优先识别为分支）
+git show v1.0.0 //显示tag或branch信息
+git push origin :<branch_name> //删除远程分支（本地分支会保留）
+git checkout -b branch_name tag_name //从tag创建分支
+```
+
 查看历史
 ```javascript
 git log --pretty=oneline // 一行显示log(不能察看已删除的commit记录)
@@ -27,6 +54,17 @@ git show commit-id // 查看某次修改
 git reset HEAD //回滚至最新一次的提交
 git reset --hard commit-id //回滚到commit-id，将commit-id之后提交的commit都去除 
 git reset --hard HEAD~3 //将最近3次的提交回滚
+```
+
+回滚远程代码(原理：先将本地分支退回到某个commit，删除远程分支，再重新push本地分支):
+```javascript
+git checkout the_branch
+git pull
+git branch the_branch_backup //备份一下这个分支当前的情况
+git reset --hard the_commit_id //把the_branch本地回滚到the_commit_id
+git push origin :the_branch //删除远程 the_branch
+git push origin the_branch //用回滚后的本地分支重新建立远程分支
+git push origin :the_branch_backup //如果前面都成功了，删除这个备份分支
 ```
 
 获取远程版本
@@ -106,3 +144,6 @@ git remote add origin [your git repo]
 git pull origin master //同步远程库最新代码至本地
 git push origin master
 ```
+
+
+
