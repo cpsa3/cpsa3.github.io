@@ -776,6 +776,7 @@ Mar 15,&nbsp 2015</div>
 </li>
 <li>邮件配置</li>
 <li>集成StyleCop</li>
+<li>配置gitlab webhook</li>
 </ul>
 
 
@@ -810,18 +811,27 @@ Mar 15,&nbsp 2015</div>
 <p>6.首先使用MSBuild命名将项目编译后的文件放到临时目录，然后再用batch command将临时目录复制到iis指向的目录。
 <img src="/images/posts/jenkins/7.png"></p>
 
-<p>7.配置触发器
+<p>7.也可以使用Web Deploy进行远程发布
+<img src="/images/posts/jenkins/web_deploy.png"></p>
+
+<p>8.使用alioss工具将静态资源上传到ali oss
+<img src="/images/posts/jenkins/alioss.png"></p>
+
+<p>9.开启触发远程构建
+<img src="/images/posts/jenkins/remote_trigger.png"></p>
+
+<p>10.配置触发器
 日程表表达式可以参考说明，0 * * * * （表示每个整点运行项目构建）
 <img src="/images/posts/jenkins/8.png"></p>
 
-<p>8.构建项目
+<p>11.构建项目
 <img src="/images/posts/jenkins/9.png"></p>
 
-<p>构建信息：
+<p>12.构建信息：
 图中标示的为本次构建的svn revision
 <img src="/images/posts/jenkins/10.png"></p>
 
-<p>本次构建的所有变更记录
+<p>13.本次构建的所有变更记录
 <img src="/images/posts/jenkins/11.png"></p>
 
 <h3>邮件配置</h3>
@@ -918,12 +928,27 @@ Mar 15,&nbsp 2015</div>
 <p>8.查看build后StyleCop结果
 <img src="/images/posts/jenkins/20.png"></p>
 
+<h3>配置gitlab webhook</h3>
+
+<p>1.安装git plugin</p>
+
+<p>2.配置源码管理中gitlab 分支
+<img src="/images/posts/jenkins/git_configuration.png"></p>
+
+<p>3.GitLab中配置web hook
+<img src="/images/posts/jenkins/web_hook.png"></p>
+
+<p>4.开启Poll SCM
+<img src="/images/posts/jenkins/poll_scm.png"></p>
+
 <h3>参考</h3>
 
 <ul>
 <li><a href="http://blog.codeinside.eu/2010/12/15/howto-msbuild-stylecop/">http://blog.codeinside.eu/2010/12/15/howto-msbuild-stylecop/</a></li>
 <li><a href="https://ferritedog.wordpress.com/2011/05/27/1-hour-guide-to-continuous-integration-setup-jenkins-meets-net/">https://ferritedog.wordpress.com/2011/05/27/1-hour-guide-to-continuous-integration-setup-jenkins-meets-net/</a></li>
 <li><a href="https://wiki.jenkins-ci.org/display/JENKINS/Violations">https://wiki.jenkins-ci.org/display/JENKINS/Violations</a></li>
+<li><a href="http://www.cnblogs.com/gao241/archive/2013/03/20/2971416.html">http://www.cnblogs.com/gao241/archive/2013/03/20/2971416.html</a></li>
+<li><a href="http://juristr.com/blog/2014/01/git-flow-jenkins-gitlab/">http://juristr.com/blog/2014/01/git-flow-jenkins-gitlab/</a></li>
 </ul>
 
 
