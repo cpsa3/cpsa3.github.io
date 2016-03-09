@@ -14,6 +14,7 @@ categories: ['持续集成']
    * 构建项目
 * 邮件配置
 * 集成StyleCop
+* 配置gitlab webhook
 
 ##正文
 
@@ -44,18 +45,27 @@ categories: ['持续集成']
 6.首先使用MSBuild命名将项目编译后的文件放到临时目录，然后再用batch command将临时目录复制到iis指向的目录。
 {% img /images/posts/jenkins/7.png %}
 
-7.配置触发器
+7.也可以使用Web Deploy进行远程发布
+{% img /images/posts/jenkins/web_deploy.png %}
+
+8.使用alioss工具将静态资源上传到ali oss
+{% img /images/posts/jenkins/alioss.png %}
+
+9.开启触发远程构建
+{% img /images/posts/jenkins/remote_trigger.png %}
+
+10.配置触发器
 日程表表达式可以参考说明，0 * * * * （表示每个整点运行项目构建）
 {% img /images/posts/jenkins/8.png %}
 
-8.构建项目
+11.构建项目
 {% img /images/posts/jenkins/9.png %}
 
-构建信息：
+12.构建信息：
 图中标示的为本次构建的svn revision
 {% img /images/posts/jenkins/10.png %}
 
-本次构建的所有变更记录
+13.本次构建的所有变更记录
 {% img /images/posts/jenkins/11.png %}
 
 ###邮件配置
@@ -121,8 +131,24 @@ categories: ['持续集成']
 8.查看build后StyleCop结果
 {% img /images/posts/jenkins/20.png %}
 
+###配置gitlab webhook
+
+1.安装git plugin
+
+2.配置源码管理中gitlab 分支
+{% img /images/posts/jenkins/git_configuration.png %}
+
+3.GitLab中配置web hook
+{% img /images/posts/jenkins/web_hook.png %}
+
+4.开启Poll SCM
+{% img /images/posts/jenkins/poll_scm.png %}
+
+
 
 ###参考
 * http://blog.codeinside.eu/2010/12/15/howto-msbuild-stylecop/
 * https://ferritedog.wordpress.com/2011/05/27/1-hour-guide-to-continuous-integration-setup-jenkins-meets-net/
 * https://wiki.jenkins-ci.org/display/JENKINS/Violations
+* http://www.cnblogs.com/gao241/archive/2013/03/20/2971416.html
+* http://juristr.com/blog/2014/01/git-flow-jenkins-gitlab/
